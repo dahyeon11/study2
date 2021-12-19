@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import getdata from './getdata.js'
+import getdata from '../Components/getdata.js'
 
 function Tv() {
 
@@ -10,7 +10,6 @@ function Tv() {
     const [tvDataNowPlaying, setTvDataNowPlaying] = useState([])
 
     useEffect(() => {
-        let completed = false;
         getdata('get', '/tv/popular').then(result => {
             console.log(result)
             setTvDataPopular(result.data.results)
@@ -84,6 +83,7 @@ function Tv() {
 const SectionTitle = styled.div`
     font-size: 32px;
     font-weight: 700;
+    color: #FFF;
     display: flex;
     margin: 10px 0 5px 20px;
     position: relative;

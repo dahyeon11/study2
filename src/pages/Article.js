@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import getdata from './getdata.js'
+import getdata from '../Components/getdata.js'
 
 function Article() {
     const location = useLocation();

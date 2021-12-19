@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import getdata from './getdata.js'
+import getdata from '../Components/getdata.js'
 
 function Movie() {
 
@@ -10,7 +10,6 @@ function Movie() {
     const [movieDataNowPlaying, setMovieDataNowPlaying] = useState([])
 
     useEffect(() => {
-        let completed = false;
         getdata('get', '/movie/popular').then(result => {
             console.log(result)
             setMovieDataPopular(result.data.results)
@@ -82,6 +81,7 @@ function Movie() {
 const SectionTitle = styled.div`
     font-size: 32px;
     font-weight: 700;
+    color: #FFF;
     display: flex;
     margin: 10px 0 5px 20px;
     position: relative;
