@@ -12,8 +12,6 @@ async function getdata(method, endpoint, parameter) {
             ...parameter
         }
     }
-
-    console.log(options)
     
     try {
         var result = await axios(options)
