@@ -17,7 +17,7 @@ async function getdata(method, endpoint, parameter) {
         var result = await axios(options)
     } catch (err) {
         console.log('axios error')
-    }   
+    }
 
     return result
 }

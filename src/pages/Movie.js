@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import getdata from '../Components/getdata.js'
 import GridView from '../Components/GridView.js'
+import validationTest from '../Components/validationTest.js'
 
 function Movie() {
 
@@ -11,17 +12,38 @@ function Movie() {
     useEffect(() => {
         getdata('get', '/movie/popular').then(result => {
             console.log(result)
-            setMovieDataPopular(result.data.results)
+            const gridData = result.data.results.map(elements => {
+                if(validationTest(elements, 'tv')){
+                    return elements
+                } else {
+                    return true
+                }
+            })
+            setMovieDataPopular(gridData)
         })
 
         getdata('get', '/movie/top_rated').then(result => {
             console.log(result)
-            setMovieDataTopRated(result.data.results)
+            const gridData = result.data.results.map(elements => {
+                if(validationTest(elements, 'tv')){
+                    return elements
+                } else {
+                    return true
+                }
+            })
+            setMovieDataTopRated(gridData)
         })
 
         getdata('get', '/movie/now_playing').then(result => {
             console.log(result)
-            setMovieDataNowPlaying(result.data.results)
+            const gridData = result.data.results.map(elements => {
+                if(validationTest(elements, 'tv')){
+                    return elements
+                } else {
+                    return true
+                }
+            })
+            setMovieDataNowPlaying(gridData)
         })
 
     }, [])

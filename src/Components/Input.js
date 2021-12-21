@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 
-
 class Input extends Component {
-
-    render() {
-        
+    render() {        
         return (
             <div>
                 <Inputline onKeyUp={this.props.onKeyUp} />
-            </div>
-            
+            </div>            
         )
     }
 }

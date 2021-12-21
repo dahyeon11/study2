@@ -30,8 +30,8 @@ class Search extends Component {
         return (
             <div>
                 <Input onKeyUp={(e) => this.inputHandler(e)} />
-                {this.state.searchResultmov && <GridView title='Movie' data={this.state.searchResultmov} />}
-                {this.state.searchResulttv && <GridView title='Tv' data={this.state.searchResulttv} />}
+                {this.state.searchResultmov && <GridView title='Movie' data={this.state.searchResultmov} currentPage='movie' />}
+                {this.state.searchResulttv && <GridView title='Tv' data={this.state.searchResulttv} currentPage='tv' />}
             </div>
         )
     }

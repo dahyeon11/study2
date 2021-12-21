@@ -20,6 +20,7 @@ function Article() {
         })
 
     }, [])
+
     let date = ''
     let runtime = 0;
     if (currentPage === 'tv'){
@@ -38,17 +39,20 @@ function Article() {
 
     console.log('from은 ', from.elements)
 
+    console.log('article 정보는 ', currentArticle)
+
     return (
         <div>
-            <MasterContainer img={`https://image.tmdb.org/t/p/w500/${from.elements['backdrop_path']}`}>
+            <MasterContainer>
+            <BackgroundImg img={`https://image.tmdb.org/t/p/w500/${from.elements['backdrop_path']}`} />
             <Poster img={`https://image.tmdb.org/t/p/w500/${from.elements['poster_path']}`}></Poster>
 
             <DescriptionContainer>
             <DescriptionTitle>{currentPage === 'tv' ? from.elements['name'] : currentArticle['title']}</DescriptionTitle>
             <DescriptionHeader>
             {`${date}🔵${runtime}분🔵`}
-            {genre.map(elements => {
-                return <Genre>{elements['name']}</Genre>
+            {genre.map((elements, index) => {
+                return <Genre key={index}>{elements['name']}</Genre>
             })}
             <div>
             <Lang>{from.elements['origin_country']}</Lang>
@@ -74,12 +78,22 @@ const Background = styled.div`
 `
 
 const MasterContainer = styled.div`
-    background-image: url(${props => (props.img)});
-    background-size: cover;
     display: flex;
     height: 100vh;
     width: 100vw;
 `
+const BackgroundImg = styled.div`
+background-image: url(${props => (props.img)});
+background-size: cover;
+background-color: #FF0000;
+opacity: 0.2;
+position: absolute;
+left: 0px;
+top: 85px;
+right: 0px;
+bottom: 0px;
+`
+
 
 const Poster = styled.img.attrs((props) => ({
     src: props.img || 'https://image.tmdb.org/t/p/w500/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg'

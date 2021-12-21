@@ -17,12 +17,9 @@ function Menu() {
                 </Link>
               </MenuContainer>
               <div></div>
-            </div>
-            
-        )
-    
+            </div>            
+        )    
 }
-
 
 const MenuContainer = styled.div`
   displey: flex;
@@ -38,8 +35,6 @@ const Title = styled.div`
     color: #FF0000;
     cursor: pointer;
   }
-  
-
 `
 
 export default Menu;

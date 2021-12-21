@@ -2,7 +2,7 @@
 
 .App {
   font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
-  background-color: #333333;
+  background-color: #202020;
   box-sizing: border-box;
   -webkit-text-size-adjust   : 100%;
   -webkit-font-smoothing     : antialiased;
@@ -10,7 +10,7 @@
   -webkit-tap-highlight-color: transparent;
   font-weight                : normal;
   font-size                  : 16px;
-  font-size: inherit;
+  color: #FFF;
   margin: 0;
   padding  : 0;
 }

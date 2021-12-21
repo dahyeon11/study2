@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import getdata from '../Components/getdata.js'
 import GridView from '../Components/GridView.js'
+import validationTest from '../Components/validationTest.js'
 
 function Tv() {
 
@@ -11,17 +12,39 @@ function Tv() {
     useEffect(() => {
         getdata('get', '/tv/popular').then(result => {
             console.log(result)
-            setTvDataPopular(result.data.results)
+            const gridData = result.data.results.map(elements => {
+                if(validationTest(elements, 'tv')){
+                    return elements
+                } else {
+                    return true
+                }
+            })
+            setTvDataPopular(gridData)
         })
 
         getdata('get', '/tv/top_rated').then(result => {
             console.log(result)
-            setTvDataTopRated(result.data.results)
+            
+            const gridData = result.data.results.map(elements => {
+                if(validationTest(elements, 'tv')){
+                    return elements
+                } else {
+                    return true
+                }
+            })
+            setTvDataTopRated(gridData)
         })
 
         getdata('get', '/tv/airing_today').then(result => {
             console.log(result)
-            setTvDataNowPlaying(result.data.results)
+            const gridData = result.data.results.map(elements => {
+                if(validationTest(elements, 'tv')){
+                    return elements
+                } else {
+                    return true
+                }
+            })
+            setTvDataNowPlaying(gridData)
         })
 
     }, [])

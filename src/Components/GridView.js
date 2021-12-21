@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import erroricon from '../warning.png';
+import validationTest from './validationTest';
 
 function GridView({ title, data, currentPage }) {
 
@@ -11,7 +12,7 @@ function GridView({ title, data, currentPage }) {
             <TvContainer>
             {data.map((elements, index) => {
                 return ([                    
-                    <Link to='/Article' state={{ from: {elements}, currentPage: {currentPage}}} key={`${currentPage}-popular-link-${index}`}>
+                    <Link to='/Article' state={{ from: {elements}, currentPage: currentPage}} key={`${currentPage}-popular-link-${index}`}>
                     <ThumnailContainer className={`${currentPage}-thumbnail-container-${index}`} key={`${currentPage}-popular-container-${index}`}>
                     <Thumbnail className={`${currentPage}-thumbnail-${index}`} img={elements['poster_path'] ? `https://image.tmdb.org/t/p/w500/${elements['poster_path']}` : erroricon } key={`${currentPage}-datapopular${index}`}></Thumbnail>
                     <Star className='star' key={`${currentPage}-popular-star-${index}`}>{`☆${elements['vote_average']}/10`}</Star>
